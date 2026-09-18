@@ -1,0 +1,62 @@
+/* ==========================================================================
+   tokens.css
+   Sistema de design do Projeto Vô Catraquinha.
+   Paleta inspirada na identidade visual real do projeto (Instagram e
+   formulário oficial), em tons de amarelo mel e laranja queimado —
+   remetendo ao aconchego de um lar para bichinhos idosos.
+   ========================================================================== */
+
+:root {
+  /* ---- Paleta de marca ---- */
+  --cor-primaria: #8c3f02;         /* laranja queimado (cor oficial extraída da marca) */
+  --cor-primaria-escura: #6b2f01;
+  --cor-primaria-clara: #b8541c;   /* terracota */
+  --cor-secundaria: #e8a33d;       /* amarelo mel */
+  --cor-secundaria-clara: #f4c778;
+  --cor-acento: #6b8f47;           /* verde musgo — usado para "adotado"/sucesso */
+  --cor-alerta: #c0392b;
+
+  /* ---- Tema claro (padrão) ---- */
+  --bg: #fff8ed;
+  --bg-alt: #fcecd4;
+  --bg-card: #ffffff;
+  --texto: #2b1b10;
+  --texto-suave: #6b5947;
+  --borda: #e8d5b8;
+  --sombra: 0 4px 20px rgba(140, 63, 2, 0.10);
+  --sombra-forte: 0 10px 30px rgba(140, 63, 2, 0.18);
+
+  /* ---- Tipografia ---- */
+  --fonte-display: 'Fraunces', Georgia, serif;
+  --fonte-corpo: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ---- Layout ---- */
+  --raio: 14px;
+  --raio-grande: 22px;
+  --largura-maxima: 1180px;
+  --transicao: 200ms ease;
+}
+
+/* ---- Tema escuro ---- */
+[data-tema="escuro"] {
+  --bg: #241812;
+  --bg-alt: #2f1f16;
+  --bg-card: #33231a;
+  --texto: #f6ead8;
+  --texto-suave: #cbb49b;
+  --borda: #4a3527;
+  --sombra: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --sombra-forte: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  --cor-secundaria-clara: #6b4a1c;
+}
+
+/* Respeita preferência de redução de movimento do sistema operacional */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,355 @@
+/* ==========================================================================
+   componentes.css — cards de animais, filtros, formulários, modal, stats
+   ========================================================================== */
+
+/* ---- Grade de animais ---- */
+.grade-animais {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.card-animal__foto-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3.4;
+  overflow: hidden;
+  /* Cantos de "foto antiga" — assinatura visual do site */
+  -webkit-mask-image:
+    radial-gradient(circle at 0 0, transparent 0, transparent 9px, black 9.5px),
+    radial-gradient(circle at 100% 0, transparent 0, transparent 9px, black 9.5px);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.card-animal__foto {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+.cartao-polaroid:hover .card-animal__foto { transform: scale(1.06); }
+
+.card-animal__selo-wrap {
+  position: absolute;
+  top: 12px; left: 12px;
+}
+
+.card-animal__corpo { padding: 18px 20px 22px; }
+.card-animal__nome { font-family: var(--fonte-display); font-size: 1.25rem; margin: 0 0 4px; }
+.card-animal__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  margin-bottom: 10px;
+}
+.card-animal__meta span { display: inline-flex; align-items: center; gap: 4px; }
+.card-animal__historia {
+  font-size: 0.9rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.card-animal__link {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--cor-primaria);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+[data-tema="escuro"] .card-animal__link { color: var(--cor-secundaria); }
+.card-animal__link:hover { gap: 10px; }
+
+/* ---- Barra de filtros ---- */
+.barra-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 32px;
+  padding: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+.campo-pesquisa {
+  flex: 1 1 240px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  padding: 0 16px;
+  height: 42px;
+  box-sizing: border-box;
+}
+.campo-pesquisa input {
+  border: none; background: transparent;
+  width: 100%; outline: none;
+  color: var(--texto);
+}
+.select-filtro {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 10px 34px 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--borda);
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%236b5947' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='5 8 10 13 15 8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 13px;
+  color: var(--texto);
+  cursor: pointer;
+  font-size: 0.92rem;
+  line-height: 1.3;
+  height: 42px;
+}
+[data-tema="escuro"] .select-filtro {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23cbb49b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='5 8 10 13 15 8'/%3E%3C/svg%3E");
+}
+.barra-filtros__limpar {
+  border: none; background: none;
+  color: var(--cor-primaria);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  padding: 8px 4px;
+}
+
+/* ---- Estatísticas (home) ---- */
+.grade-estatisticas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+@media (max-width: 760px) { .grade-estatisticas { grid-template-columns: 1fr 1fr; } }
+.estatistica {
+  text-align: center;
+  padding: 28px 16px;
+  background: var(--bg-card);
+  border-radius: var(--raio);
+  border: 1px solid var(--borda);
+}
+.estatistica__numero {
+  font-family: var(--fonte-display);
+  font-size: 2.6rem;
+  color: var(--cor-primaria);
+  display: block;
+  font-weight: 600;
+}
+[data-tema="escuro"] .estatistica__numero { color: var(--cor-secundaria); }
+.estatistica__rotulo { font-size: 0.88rem; color: var(--texto-suave); font-weight: 600; }
+
+/* ---- Formulários ---- */
+.formulario { max-width: 720px; }
+.campo-form { margin-bottom: 20px; }
+.campo-form label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 0.94rem;
+}
+.campo-form .obrigatorio { color: var(--cor-alerta); }
+.campo-form .ajuda {
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  margin-top: 6px;
+}
+.campo-form input[type="text"],
+.campo-form input[type="email"],
+.campo-form input[type="password"],
+.campo-form input[type="tel"],
+.campo-form input[type="number"],
+.campo-form select,
+.campo-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--borda);
+  background: var(--bg-card);
+  color: var(--texto);
+}
+.campo-form textarea { resize: vertical; min-height: 90px; }
+
+/* ---- Botão nativo de "Escolher arquivo(s)" (aplicado globalmente, inclusive
+   fora de formulários — ex: upload de fotos de animal na dashboard) ---- */
+input[type="file"] {
+  width: 100%;
+  padding: 10px 0;
+  color: var(--texto-suave);
+  font-size: 0.88rem;
+}
+input[type="file"]::file-selector-button,
+input[type="file"]::-webkit-file-upload-button {
+  background: var(--cor-primaria);
+  color: #fff8ed;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  margin-right: 14px;
+  transition: background var(--transicao);
+}
+input[type="file"]:hover::file-selector-button,
+input[type="file"]:hover::-webkit-file-upload-button {
+  background: var(--cor-primaria-escura);
+}
+
+/* Navegadores costumam forçar fundo branco em campos preenchidos automaticamente
+   (usuário/senha salvos) — esse truque com box-shadow interno "pinta por cima"
+   sem quebrar o texto digitado, mantendo o campo consistente com o tema. */
+.campo-form input:-webkit-autofill,
+.campo-form input:-webkit-autofill:hover,
+.campo-form input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--texto);
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-card) inset;
+  box-shadow: 0 0 0px 1000px var(--bg-card) inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+.grupo-radio { display: flex; flex-direction: column; gap: 8px; }
+.grupo-radio label {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.grupo-radio input { accent-color: var(--cor-primaria); }
+
+.form-linha { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .form-linha { grid-template-columns: 1fr; } }
+
+.mensagem-form {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+.mensagem-form--erro { background: rgba(192,57,43,0.12); color: var(--cor-alerta); }
+.mensagem-form--sucesso { background: rgba(107,143,71,0.14); color: var(--cor-acento); }
+
+/* ---- Aviso de fallback (WhatsApp) em formulários ---- */
+.aviso-fallback-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--bg-alt);
+  border: 1px dashed var(--borda);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+}
+.aviso-fallback-form__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: #1a7a41;
+  white-space: nowrap;
+}
+[data-tema="escuro"] .aviso-fallback-form__link { color: #4ad080; }
+.aviso-fallback-form__link:hover { text-decoration: underline; }
+
+/* ---- Logo no topo da ficha de divulgação ---- */
+.divulgacao-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.divulgacao-logo img {
+  max-width: 320px;
+  width: 100%;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+/* ---- Modal (Tenho Interesse) ---- */
+.overlay-modal {
+  position: fixed; inset: 0;
+  background: rgba(36, 24, 18, 0.55);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transicao);
+}
+.overlay-modal.aberto { opacity: 1; pointer-events: auto; }
+
+.caixa-modal {
+  background: var(--bg-card);
+  border-radius: var(--raio-grande);
+  max-width: 460px;
+  width: 100%;
+  padding: 32px;
+  position: relative;
+  box-shadow: var(--sombra-forte);
+  transform: translateY(12px) scale(0.98);
+  transition: transform var(--transicao);
+}
+.overlay-modal.aberto .caixa-modal { transform: translateY(0) scale(1); }
+
+.caixa-modal__fechar {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-alt);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.caixa-modal__titulo { margin-bottom: 6px; }
+.caixa-modal__subtitulo { margin-bottom: 24px; color: var(--texto-suave); }
+
+.opcoes-interesse { display: flex; flex-direction: column; gap: 14px; }
+.opcao-interesse {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio);
+  text-align: left;
+  background: var(--bg);
+  cursor: pointer;
+  transition: border-color var(--transicao), transform var(--transicao);
+}
+.opcao-interesse:hover { border-color: var(--cor-primaria); transform: translateY(-2px); }
+.opcao-interesse__icone { font-size: 1.6rem; flex-shrink: 0; }
+.opcao-interesse__titulo { font-weight: 700; display: block; margin-bottom: 2px; }
+.opcao-interesse__desc { font-size: 0.85rem; color: var(--texto-suave); margin: 0; }
+
+/* ---- Alternância de tema no menu (checkbox estilizado) ---- */
+.tabs {
+  display: inline-flex;
+  background: var(--bg-alt);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px;
+}
+.tabs button {
+  border: none;
+  background: transparent;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.86rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+}
+.tabs button.ativo {
+  background: var(--cor-primaria);
+  color: #fff8ed;
+}

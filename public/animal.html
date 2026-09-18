@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="titulo-pagina">Perfil do animal — Vô Catraquinha</title>
+  <script>
+    (function () {
+      try {
+        var salvo = localStorage.getItem('vo-catraquinha:tema');
+        if (!salvo) salvo = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+        document.documentElement.setAttribute('data-tema', salvo);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/componentes.css" />
+  <link rel="stylesheet" href="/css/animal.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="pular-para-conteudo">Pular para o conteúdo principal</a>
+  <div id="app-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <div class="container" style="padding-top: 28px;">
+      <a href="/animais.html" class="botao botao--fantasma" style="margin-bottom: 24px;">← Voltar para todos os animais</a>
+    </div>
+
+    <div id="conteudo-animal">
+      <div class="carregando" style="padding: 80px 0;"><span class="carregando__ponto"></span><span class="carregando__ponto"></span><span class="carregando__ponto"></span></div>
+    </div>
+  </main>
+
+  <div id="app-rodape"></div>
+
+  <!-- Modal "Tenho Interesse" -->
+  <div class="overlay-modal" id="overlay-interesse" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-interesse">
+    <div class="caixa-modal">
+      <button type="button" class="caixa-modal__fechar" id="fechar-modal-interesse" aria-label="Fechar">✕</button>
+      <h3 class="caixa-modal__titulo" id="titulo-modal-interesse">Tenho interesse!</h3>
+      <p class="caixa-modal__subtitulo">Escolha como prefere continuar:</p>
+      <div class="opcoes-interesse">
+        <a href="#" id="opcao-formulario" class="opcao-interesse">
+          <span class="opcao-interesse__icone">📋</span>
+          <span>
+            <span class="opcao-interesse__titulo">Responder formulário de adoção</span>
+            <p class="opcao-interesse__desc">Um questionário completo para conhecermos sua rotina e garantir o melhor match.</p>
+          </span>
+        </a>
+        <a href="#" id="opcao-whatsapp" class="opcao-interesse" target="_blank" rel="noopener">
+          <span class="opcao-interesse__icone">💬</span>
+          <span>
+            <span class="opcao-interesse__titulo">Chamar no WhatsApp</span>
+            <p class="opcao-interesse__desc">Fale diretamente com a equipe do projeto agora mesmo.</p>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/seguranca.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/includes.js"></script>
+  <script src="/js/animal-detalhe.js"></script>
+</body>
+</html>

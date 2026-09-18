@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animais para adoção — Vô Catraquinha</title>
+  <meta name="description" content="Conheça os animais idosos disponíveis para adoção no Projeto Vô Catraquinha." />
+  <script>
+    (function () {
+      try {
+        var salvo = localStorage.getItem('vo-catraquinha:tema');
+        if (!salvo) salvo = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+        document.documentElement.setAttribute('data-tema', salvo);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/componentes.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="pular-para-conteudo">Pular para o conteúdo principal</a>
+  <div id="app-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="secao" style="padding-bottom: 0;">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="eyebrow">Encontre seu novo companheiro</p>
+          <h1>Animais para adoção</h1>
+          <p>Filtre por idade, porte, sexo e situação para encontrar o vovô ou a vovó de patinha ideal para a sua casa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" style="padding-top: 0;">
+      <div class="container">
+        <form class="barra-filtros" id="form-filtros" role="search" aria-label="Filtrar animais">
+          <div class="campo-pesquisa">
+            <label for="campo-busca" class="somente-leitor">Pesquisar por nome ou história</label>
+            🔎
+            <input type="text" id="campo-busca" name="q" placeholder="Buscar por nome ou história..." />
+          </div>
+
+          <label class="somente-leitor" for="filtro-especie">Espécie</label>
+          <select class="select-filtro" id="filtro-especie" name="especie">
+            <option value="">Espécie: todas</option>
+            <option value="cachorro">Cachorro</option>
+            <option value="gato">Gato</option>
+            <option value="outro">Outro</option>
+          </select>
+
+          <label class="somente-leitor" for="filtro-porte">Porte</label>
+          <select class="select-filtro" id="filtro-porte" name="porte">
+            <option value="">Porte: todos</option>
+            <option value="pequeno">Pequeno</option>
+            <option value="medio">Médio</option>
+            <option value="grande">Grande</option>
+          </select>
+
+          <label class="somente-leitor" for="filtro-sexo">Sexo</label>
+          <select class="select-filtro" id="filtro-sexo" name="sexo">
+            <option value="">Sexo: todos</option>
+            <option value="macho">Macho</option>
+            <option value="femea">Fêmea</option>
+          </select>
+
+          <label class="somente-leitor" for="filtro-status">Situação</label>
+          <select class="select-filtro" id="filtro-status" name="status">
+            <option value="">Situação: todas</option>
+            <option value="disponivel">Disponível</option>
+            <option value="processo">Em processo</option>
+            <option value="adotado">Já adotado</option>
+          </select>
+
+          <button type="button" class="barra-filtros__limpar" id="botao-limpar-filtros">Limpar filtros</button>
+        </form>
+
+        <p id="contador-resultados" style="color: var(--texto-suave); font-size: 0.9rem; margin-bottom: 20px;" aria-live="polite"></p>
+
+        <div class="grade-animais" id="grade-animais">
+          <div class="carregando"><span class="carregando__ponto"></span><span class="carregando__ponto"></span><span class="carregando__ponto"></span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-rodape"></div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/seguranca.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/includes.js"></script>
+  <script src="/js/cartao-animal.js"></script>
+  <script src="/js/animais.js"></script>
+</body>
+</html>

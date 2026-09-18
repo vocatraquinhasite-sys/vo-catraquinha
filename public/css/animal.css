@@ -1,0 +1,90 @@
+/* ==========================================================================
+   animal.css — perfil individual do animal
+   ========================================================================== */
+
+.perfil-animal {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  padding: 8px 0 64px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .perfil-animal { grid-template-columns: 1fr; }
+}
+
+.galeria-principal {
+  border-radius: var(--raio-grande);
+  overflow: hidden;
+  aspect-ratio: 4/3.3;
+  box-shadow: var(--sombra);
+  margin-bottom: 12px;
+}
+.galeria-principal img { width: 100%; height: 100%; object-fit: cover; }
+
+.galeria-miniaturas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.galeria-miniaturas button {
+  width: 74px; height: 74px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  flex-shrink: 0;
+}
+.galeria-miniaturas button.ativa { border-color: var(--cor-primaria); }
+.galeria-miniaturas img { width: 100%; height: 100%; object-fit: cover; }
+
+.perfil-animal__cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.perfil-animal__nome { margin-bottom: 0; }
+
+.grade-atributos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 22px 0;
+}
+.atributo {
+  background: var(--bg-card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+.atributo__rotulo { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--texto-suave); display: block; margin-bottom: 4px; }
+.atributo__valor { font-weight: 700; font-family: var(--fonte-display); font-size: 1.05rem; }
+
+.perfil-animal__historia h2 { font-size: 1.3rem; margin-top: 28px; }
+
+.perfil-animal__acoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.secao-videos { margin-top: 32px; }
+.grade-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.video-wrap {
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+.video-wrap iframe, .video-wrap video { width: 100%; height: 100%; border: none; }

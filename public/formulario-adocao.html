@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário de adoção — Vô Catraquinha</title>
+  <script>
+    (function () {
+      try {
+        var salvo = localStorage.getItem('vo-catraquinha:tema');
+        if (!salvo) salvo = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+        document.documentElement.setAttribute('data-tema', salvo);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/componentes.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="pular-para-conteudo">Pular para o conteúdo principal</a>
+  <div id="app-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="secao">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="eyebrow">Quase lá</p>
+          <h1 id="titulo-formulario">Formulário de adoção</h1>
+          <p>Obrigada por abrir seu coração para um bichin véi. Nossos peludinhos idosos carregam histórias, muito amor e merecem um lar cheio de carinho, paciência e respeito ao seu tempinho. Não existem respostas certas ou erradas — o mais importante é a sinceridade, para encontrarmos o match mais feliz e seguro possível. 💛</p>
+        </div>
+
+        <div id="mensagem-envio" hidden></div>
+
+        <div id="fallback-whatsapp-adocao"></div>
+
+        <form class="formulario" id="form-adocao" novalidate>
+          <input type="hidden" name="animal_id" id="campo-animal-id" />
+
+          <div class="campo-form">
+            <label for="f-nome">Nome <span class="obrigatorio">*</span></label>
+            <input type="text" id="f-nome" name="nome" required />
+          </div>
+
+          <div class="form-linha">
+            <div class="campo-form">
+              <label for="f-idade">Idade <span class="obrigatorio">*</span></label>
+              <input type="text" id="f-idade" name="idade" required />
+            </div>
+            <div class="campo-form">
+              <label for="f-profissao">Profissão <span class="obrigatorio">*</span></label>
+              <input type="text" id="f-profissao" name="profissao" required />
+            </div>
+          </div>
+
+          <div class="campo-form">
+            <label for="f-endereco">Endereço completo <span class="obrigatorio">*</span></label>
+            <input type="text" id="f-endereco" name="endereco" required />
+          </div>
+
+          <div class="campo-form">
+            <label for="f-moradia">Mora em casa ou apartamento? É próprio ou alugado? Tem telas e é seguro para o animal? <span class="obrigatorio">*</span></label>
+            <textarea id="f-moradia" name="moradia" required></textarea>
+          </div>
+
+          <div class="campo-form">
+            <label for="f-acesso-espacos">O animal poderá acessar todos os espaços ou terá alguma limitação? <span class="obrigatorio">*</span></label>
+            <textarea id="f-acesso-espacos" name="acesso_espacos" required></textarea>
+          </div>
+
+          <div class="campo-form">
+            <label for="f-onde-dormira">Onde ele dormirá? <span class="obrigatorio">*</span></label>
+            <input type="text" id="f-onde-dormira" name="onde_dormira" required />
+          </div>
+
+          <div class="campo-form">
+            <label for="f-outros-animais">Tem ou já teve outros animais? Se sim, é macho ou fêmea e quantos aninhos cada um deles tem? <span class="obrigatorio">*</span></label>
+            <textarea id="f-outros-animais" name="outros_animais" required></textarea>
+          </div>
+
+          <div class="campo-form">
+            <label for="f-criancas">Tem crianças? Quais idades?</label>
+            <input type="text" id="f-criancas" name="tem_criancas" />
+          </div>
+
+          <div class="campo-form">
+            <label for="f-rotina">Como é a rotina da casa? O cachorro ficaria sozinho quantas horas? <span class="obrigatorio">*</span></label>
+            <textarea id="f-rotina" name="rotina_casa" required></textarea>
+          </div>
+
+          <fieldset class="campo-form" style="border:none; padding:0;">
+            <legend style="font-weight:700; margin-bottom:8px;">Quantos passeios faria por semana? <span class="obrigatorio">*</span></legend>
+            <div class="grupo-radio">
+              <label><input type="radio" name="passeios_semana" value="Passeios diários" required /> Passeios diários</label>
+              <label><input type="radio" name="passeios_semana" value="Algumas vezes na semana (entre 3 a 6 passeios)" /> Algumas vezes na semana (entre 3 a 6 passeios)</label>
+              <label><input type="radio" name="passeios_semana" value="Somente aos fins de semana" /> Somente aos fins de semana</label>
+              <label><input type="radio" name="passeios_semana" value="Não tenho disponibilidade de passear" /> Não tenho disponibilidade de passear</label>
+            </div>
+          </fieldset>
+
+          <div class="form-linha">
+            <div class="campo-form">
+              <label for="f-pessoas-casa">Quantas pessoas moram na casa/apartamento? <span class="obrigatorio">*</span></label>
+              <input type="text" id="f-pessoas-casa" name="pessoas_casa" required />
+            </div>
+            <div class="campo-form">
+              <label for="f-responsavel">Apenas você será responsável pelo bichinho e por seus gastos? <span class="obrigatorio">*</span></label>
+              <input type="text" id="f-responsavel" name="responsavel_unico" required />
+            </div>
+          </div>
+
+          <div class="campo-form">
+            <label for="f-nocao-adaptacao">Tem noção de como adaptar um animal novo na sua rotina hoje? <span class="obrigatorio">*</span></label>
+            <textarea id="f-nocao-adaptacao" name="nocao_adaptacao" required></textarea>
+          </div>
+
+          <div class="campo-form">
+            <label for="f-viagem">Se viajar, o que fará com o doguinho? <span class="obrigatorio">*</span></label>
+            <textarea id="f-viagem" name="plano_viagem" required></textarea>
+          </div>
+
+          <div class="campo-form">
+            <label for="f-preferencia">Tem preferência por tamanho e idade do doguinho? Já tem algum nosso que você gostou? <span class="obrigatorio">*</span></label>
+            <textarea id="f-preferencia" name="preferencia_porte_idade" required></textarea>
+          </div>
+
+          <div class="campo-form">
+            <label for="f-motivo">Por que pensaram em adotar um animal agora? <span class="obrigatorio">*</span></label>
+            <textarea id="f-motivo" name="motivo_adocao" required></textarea>
+          </div>
+
+          <div class="campo-form">
+            <label for="f-alergias">Alguém na casa tem rinite ou alguma alergia que possa ser afetada com a presença do animal? <span class="obrigatorio">*</span></label>
+            <input type="text" id="f-alergias" name="alergias" required />
+          </div>
+
+          <div class="campo-form">
+            <label for="f-ciencia-adaptacao">Está ciente de que um animal demanda tempo de adaptação e que pode demorar meses para eles ficarem bem no espaço novo de vocês?</label>
+            <input type="text" id="f-ciencia-adaptacao" name="ciencia_adaptacao" />
+          </div>
+
+          <div class="campo-form">
+            <label for="f-ciencia-responsabilidade">Está ciente que, ao adotar um animal, será de sua inteira responsabilidade os custos, cuidados e obrigações? A adoção, em especial de um animal idoso, exige planejamento financeiro e emocional. <span class="obrigatorio">*</span></label>
+            <textarea id="f-ciencia-responsabilidade" name="ciencia_responsabilidade" required></textarea>
+          </div>
+
+          <div class="campo-form">
+            <label for="f-ciencia-devolucao">Está ciente que a devolução, especialmente de adultos e idosos, traz enorme impacto negativo na vida do animal e será de sua responsabilidade zelar por seu bem-estar físico e emocional?</label>
+            <input type="text" id="f-ciencia-devolucao" name="ciencia_devolucao" />
+          </div>
+
+          <button type="submit" class="botao botao--primario botao--bloco" id="botao-enviar-form">Enviar formulário</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-rodape"></div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/includes.js"></script>
+  <script src="/js/fallback-whatsapp.js"></script>
+  <script src="/js/formulario-adocao.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.montarFallbackWhatsapp('fallback-whatsapp-adocao', 'de adoção');
+    });
+  </script>
+</body>
+</html>

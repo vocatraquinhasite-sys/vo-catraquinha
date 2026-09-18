@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doações — Vô Catraquinha</title>
+  <meta name="description" content="Saiba como ajudar o Projeto Vô Catraquinha com doações de ração, remédios ou valores em dinheiro." />
+  <script>
+    (function () {
+      try {
+        var salvo = localStorage.getItem('vo-catraquinha:tema');
+        if (!salvo) salvo = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+        document.documentElement.setAttribute('data-tema', salvo);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/componentes.css" />
+  <link rel="stylesheet" href="/css/doacoes.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="pular-para-conteudo">Pular para o conteúdo principal</a>
+  <div id="app-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="secao" style="padding-bottom:0;">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="eyebrow">Faça parte dessa causa</p>
+          <h1>Como ajudar</h1>
+          <p>Cada contribuição, grande ou pequena, ajuda a garantir ração, remédios e cuidado veterinário para os vovôs e vovós de patinha do projeto.</p>
+        </div>
+
+        <div class="grade-formas-doacao">
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">💰</div>
+            <h3>Chave PIX</h3>
+            <p>Doações via PIX podem ser feitas a qualquer momento para a chave abaixo.</p>
+            <div class="chave-pix" id="chave-pix">Carregando...</div>
+            <button type="button" class="botao botao--fantasma" id="botao-copiar-pix" style="margin-top:10px;">Copiar chave</button>
+          </div>
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">🍖</div>
+            <h3>Ração e insumos</h3>
+            <p>Aceitamos doações de ração para animais idosos, tapetes higiênicos, remédios e produtos de higiene. Fale com a gente pelo WhatsApp para combinar a entrega.</p>
+            <a href="#" id="link-whatsapp-doacao" class="botao botao--whatsapp" target="_blank" rel="noopener" style="margin-top:10px;">Falar no WhatsApp</a>
+          </div>
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">🏥</div>
+            <h3>Apadrinhamento</h3>
+            <p>Apadrinhe um animal específico contribuindo mensalmente com seus custos de alimentação e saúde. Entre em contato para saber mais.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--alt">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="eyebrow">Campanhas ativas</p>
+          <h2>Ajude uma causa específica</h2>
+        </div>
+        <div id="lista-campanhas">
+          <div class="carregando"><span class="carregando__ponto"></span><span class="carregando__ponto"></span><span class="carregando__ponto"></span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-rodape"></div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/seguranca.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/includes.js"></script>
+  <script src="/js/doacoes.js"></script>
+</body>
+</html>

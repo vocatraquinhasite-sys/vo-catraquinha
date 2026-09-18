@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vô Catraquinha — Adoção de animais idosos</title>
+  <meta name="description" content="Projeto social dedicado ao acolhimento, cuidado e adoção responsável de animais idosos em situação de abandono." />
+  <script>
+    (function () {
+      try {
+        var salvo = localStorage.getItem('vo-catraquinha:tema');
+        if (!salvo) salvo = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+        document.documentElement.setAttribute('data-tema', salvo);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/componentes.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="pular-para-conteudo">Pular para o conteúdo principal</a>
+
+  <div id="app-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <p class="eyebrow">Adoção responsável de animais idosos</p>
+          <h1 class="hero__titulo">Todo <em>vovô e vovó</em> de patinha merece um lar cheio de carinho</h1>
+          <p class="hero__texto">O Projeto Vô Catraquinha acolhe, cuida e conecta animais idosos abandonados a novas famílias — aqueles que a maioria esquece, mas que ainda têm tanto amor para dar.</p>
+          <div class="hero__acoes">
+            <a href="/animais.html" class="botao botao--primario">Ver animais para adoção</a>
+            <a href="/doacoes.html" class="botao botao--fantasma">Quero ajudar</a>
+          </div>
+        </div>
+        <div class="hero__figura">
+          <img id="imagem-hero" src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=900" alt="Cachorro idoso de pelagem clara descansando tranquilamente ao sol" />
+          <div class="hero__figura-legenda">🐾 Cada rugazinha carrega uma história</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ESTATÍSTICAS ================= -->
+    <section class="secao">
+      <div class="container">
+        <div class="grade-estatisticas" id="grade-estatisticas">
+          <div class="estatistica"><span class="estatistica__numero">—</span><span class="estatistica__rotulo">Animais acolhidos</span></div>
+          <div class="estatistica"><span class="estatistica__numero">—</span><span class="estatistica__rotulo">Adoções realizadas</span></div>
+          <div class="estatistica"><span class="estatistica__numero">—</span><span class="estatistica__rotulo">À espera de um lar</span></div>
+          <div class="estatistica"><span class="estatistica__numero">—</span><span class="estatistica__rotulo">Voluntários cadastrados</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MISSÃO ================= -->
+    <section class="secao secao--alt">
+      <div class="container">
+        <div class="cabecalho-secao cabecalho-secao--centro" style="margin-left:auto;margin-right:auto;">
+          <p class="eyebrow" style="justify-content:center;">Nossa missão</p>
+          <h2>Cuidado, dignidade e um novo começo</h2>
+        </div>
+        <div class="grade-missao">
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">🏡</div>
+            <h3>Acolhimento</h3>
+            <p>Conectamos animais idosos em situação de abandono a lares e parceiros preparados para recebê-los, com todo o cuidado nessa transição.</p>
+          </div>
+          <div class="cartao-missao__icone" style="display:none"></div>
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">❤️</div>
+            <h3>Cuidado</h3>
+            <p>Cada animal recebe acompanhamento veterinário contínuo, alimentação adequada e muito carinho enquanto aguarda por um novo lar.</p>
+          </div>
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">🐾</div>
+            <h3>Adoção responsável</h3>
+            <p>Conectamos cada animal a famílias preparadas para acolher suas particularidades, com todo o suporte necessário nesse processo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HISTÓRIA ================= -->
+    <section class="secao">
+      <div class="container secao-historia">
+        <div class="secao-historia__figura">
+          <img id="imagem-historia-home" src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800" alt="Pessoa segurando com carinho as patas de um cachorro idoso" />
+        </div>
+        <div>
+          <p class="eyebrow">Nossa história</p>
+          <h2>De onde veio o nome Catraquinha</h2>
+          <p>O projeto nasceu do acolhimento de um pequeno cachorro de rua, já idoso, com dificuldade de locomoção — apelidado carinhosamente de "Catraquinha" por causa do seu jeitinho manhoso de andar. Ele nos ensinou que a idade não diminui a capacidade de amar, nem o direito de ser amado.</p>
+          <p>Desde então, o projeto se dedica a dar voz e visibilidade aos animais idosos, os últimos a serem notados e os primeiros a serem esquecidos nos abrigos. Cada "vovô" e "vovó" de patinha acolhido carrega uma história — e merece um final feliz.</p>
+          <a href="/sobre.html" class="botao botao--fantasma">Conheça o projeto completo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ANIMAIS EM DESTAQUE ================= -->
+    <section class="secao secao--alt">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="eyebrow">Esperando por um lar</p>
+          <h2>Animais em destaque</h2>
+        </div>
+        <div class="grade-animais" id="grade-destaques">
+          <div class="carregando"><span class="carregando__ponto"></span><span class="carregando__ponto"></span><span class="carregando__ponto"></span></div>
+        </div>
+        <div style="text-align:center; margin-top:36px;">
+          <a href="/animais.html" class="botao botao--primario">Ver todos os animais</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA FINAL ================= -->
+    <section class="secao">
+      <div class="container">
+        <div class="cta-final">
+          <h2>Você pode mudar a história de um vovô de patinha</h2>
+          <p>Seja adotando, doando ou dedicando um pouco do seu tempo como voluntário(a) — toda ajuda transforma uma vida.</p>
+          <div class="cta-final__acoes">
+            <a href="/doacoes.html" class="botao botao--secundario">Fazer uma doação</a>
+            <a href="/voluntarios.html" class="botao botao--fantasma">Ser voluntário(a)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ONGs E PROTETORES PARCEIROS ================= -->
+    <section class="secao secao--alt">
+      <div class="container">
+        <div class="cartao-missao" style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+          <div style="max-width:560px;">
+            <p class="eyebrow">Para ONGs e protetores(as)</p>
+            <h3 style="margin-bottom:8px;">É uma ONG ou protetor(a) e tem um cão idoso para divulgar?</h3>
+            <p style="margin-bottom:0;">O Vô Catraquinha ajuda a ampliar a visibilidade de cães idosos disponíveis para adoção. Envie a ficha do animal e conte com nossa ajuda na divulgação.</p>
+          </div>
+          <a href="/divulgacao.html" class="botao botao--primario" style="flex-shrink:0;">Enviar ficha de divulgação</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-rodape"></div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/seguranca.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/includes.js"></script>
+  <script src="/js/cartao-animal.js"></script>
+  <script src="/js/pagina-inicial.js"></script>
+</body>
+</html>

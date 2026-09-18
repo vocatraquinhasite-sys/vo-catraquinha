@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre o projeto — Vô Catraquinha</title>
+  <meta name="description" content="Conheça a história e a missão do Projeto Vô Catraquinha, dedicado à adoção responsável de animais idosos." />
+  <script>
+    (function () {
+      try {
+        var salvo = localStorage.getItem('vo-catraquinha:tema');
+        if (!salvo) salvo = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+        document.documentElement.setAttribute('data-tema', salvo);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/componentes.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="pular-para-conteudo">Pular para o conteúdo principal</a>
+  <div id="app-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="secao" style="padding-bottom:0;">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="eyebrow">Quem somos</p>
+          <h1>Sobre o Vô Catraquinha</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container secao-historia">
+        <div class="secao-historia__figura">
+          <img id="imagem-historia-sobre" src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800" alt="Cachorro idoso sendo acariciado por uma pessoa" />
+        </div>
+        <div>
+          <p class="eyebrow">Um projeto social individual</p>
+          <h2>Carinho que não tem idade</h2>
+          <p>O Vô Catraquinha é um projeto social individual dedicado ao acolhimento, cuidado e adoção responsável de animais em situação de abandono, com foco especial em animais idosos — aqueles que, por serem "mais velhos", costumam ser os últimos a serem notados e os primeiros a serem esquecidos.</p>
+          <p>Cada acolhimento é acompanhado de perto: atendimento veterinário, alimentação adequada e muito carinho, até que o animal encontre uma família preparada para acolhê-lo com toda a atenção que ele merece.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--alt">
+      <div class="container">
+        <div class="cabecalho-secao cabecalho-secao--centro">
+          <p class="eyebrow" style="justify-content:center;">Por que animais idosos?</p>
+          <h2>Eles também merecem um final feliz</h2>
+        </div>
+        <div class="grade-missao">
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">🕰️</div>
+            <h3>Menos chances de adoção</h3>
+            <p>Animais idosos costumam ser preteridos em relação a filhotes, permanecendo por muito mais tempo à espera de um lar.</p>
+          </div>
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">😌</div>
+            <h3>Personalidade formada</h3>
+            <p>Diferente dos filhotes, já sabemos exatamente como é o temperamento de cada um — o que facilita encontrar o match ideal com a família.</p>
+          </div>
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">💛</div>
+            <h3>Gratidão em dobro</h3>
+            <p>Quem já adotou um animal idoso sabe: o carinho e a gratidão que eles demonstram não têm tamanho.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <div class="cta-final">
+          <h2>Acompanhe de perto o nosso trabalho</h2>
+          <p>Siga o projeto no Instagram para ver as histórias, acolhimentos e adoções em tempo real.</p>
+          <div class="cta-final__acoes">
+            <a href="#" id="link-instagram-sobre" target="_blank" rel="noopener" class="botao botao--secundario">Seguir no Instagram</a>
+            <a href="/animais.html" class="botao botao--fantasma">Ver animais para adoção</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-rodape"></div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/includes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await (window.CONFIG_CARREGADO || Promise.resolve());
+      document.getElementById('link-instagram-sobre').href = window.CONFIG.INSTAGRAM_URL;
+      const imgHistoria = document.getElementById('imagem-historia-sobre');
+      if (imgHistoria && window.CONFIG.IMAGEM_HISTORIA_SOBRE) imgHistoria.src = window.CONFIG.IMAGEM_HISTORIA_SOBRE;
+    });
+  </script>
+</body>
+</html>

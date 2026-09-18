@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ficha de divulgação de cão idoso — Vô Catraquinha</title>
+  <meta name="description" content="ONGs e protetores parceiros podem enviar aqui a ficha de um cão idoso para o Vô Catraquinha ajudar na divulgação." />
+  <script>
+    (function () {
+      try {
+        var salvo = localStorage.getItem('vo-catraquinha:tema');
+        if (!salvo) salvo = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+        document.documentElement.setAttribute('data-tema', salvo);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/componentes.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="pular-para-conteudo">Pular para o conteúdo principal</a>
+  <div id="app-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="secao">
+      <div class="container" style="max-width: 760px;">
+        <div class="divulgacao-logo">
+          <img src="/assets/img/logo-vo-catraquinha.png" alt="Logo Vô Catraquinha" />
+        </div>
+        <div class="cabecalho-secao">
+          <p class="eyebrow">Para ONGs e protetores parceiros</p>
+          <h1>Ficha para divulgação de cão idoso</h1>
+          <p>O Vô Catraquinha é um perfil dedicado exclusivamente à divulgação de cães idosos disponíveis para adoção. Não somos ONG, abrigo ou grupo de resgate. Nosso objetivo é ampliar a visibilidade desses animais e aproximá-los de famílias compatíveis.</p>
+          <p style="font-style: italic;">Faremos uma conversa inicial com os interessados e encaminharemos à ONG ou ao protetor apenas os perfis que, em nossa avaliação preliminar, apresentem possível compatibilidade com o cão. A avaliação definitiva, a aprovação, a entrega e o acompanhamento pós-adoção permanecem sob responsabilidade da ONG ou do protetor responsável.</p>
+        </div>
+
+        <div id="mensagem-envio" hidden></div>
+
+        <div id="fallback-whatsapp-divulgacao"></div>
+
+        <form class="formulario" id="form-divulgacao" novalidate>
+
+          <div class="campo-form">
+            <label for="d-ong">Nome da ONG/Projeto — coloque também o Instagram <span class="obrigatorio">*</span></label>
+            <input type="text" id="d-ong" required />
+          </div>
+
+          <div class="campo-form">
+            <label for="d-cidade">Qual Cidade/Estado? <span class="obrigatorio">*</span></label>
+            <input type="text" id="d-cidade" required />
+          </div>
+
+          <div class="campo-form">
+            <label for="d-responsavel">Nome e WhatsApp de algum voluntário ou responsável para que possamos entrar em contato (caso necessário) <span class="obrigatorio">*</span></label>
+            <input type="text" id="d-responsavel" required />
+          </div>
+
+          <div class="campo-form">
+            <label for="d-animal">Nome do animal, sexo e idade aproximada <span class="obrigatorio">*</span></label>
+            <input type="text" id="d-animal" required />
+          </div>
+
+          <fieldset class="campo-form" style="border:none; padding:0;" data-grupo-obrigatorio="d-porte">
+            <legend style="font-weight:700; margin-bottom:8px;">Porte <span class="obrigatorio">*</span></legend>
+            <div class="grupo-radio">
+              <label><input type="checkbox" name="d-porte" value="Pequeno (até 10 Kg)" /> Pequeno (até 10 Kg)</label>
+              <label><input type="checkbox" name="d-porte" value="Médio (até 25 kg)" /> Médio (até 25 kg)</label>
+              <label><input type="checkbox" name="d-porte" value="Grande (acima de 25 kg)" /> Grande (acima de 25 kg)</label>
+            </div>
+          </fieldset>
+
+          <div class="campo-form">
+            <label for="d-tempo-espera">Há quanto tempo aguarda adoção? <span class="obrigatorio">*</span></label>
+            <input type="text" id="d-tempo-espera" required />
+          </div>
+
+          <fieldset class="campo-form" style="border:none; padding:0;" data-grupo-obrigatorio="d-temperamento">
+            <legend style="font-weight:700; margin-bottom:8px;">Temperamento do animal: <span class="obrigatorio">*</span></legend>
+            <div class="grupo-radio">
+              <label><input type="checkbox" name="d-temperamento" value="Sociável com pessoas (adultos e crianças)" /> Sociável com pessoas (adultos e crianças)</label>
+              <label><input type="checkbox" name="d-temperamento" value="Sociável com outros cães" /> Sociável com outros cães</label>
+              <label><input type="checkbox" name="d-temperamento" value="Sociável com gatos" /> Sociável com gatos</label>
+              <label><input type="checkbox" name="d-temperamento" value="Medroso(a)" /> Medroso(a)</label>
+              <label><input type="checkbox" name="d-temperamento" value="Territorialista" /> Territorialista</label>
+              <label><input type="checkbox" name="d-temperamento" value="Excessivamente carente" /> Excessivamente carente</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="campo-form" style="border:none; padding:0;" data-grupo-obrigatorio="d-entrega">
+            <legend style="font-weight:700; margin-bottom:8px;">Sobre a adoção, o animal será entregue: <span class="obrigatorio">*</span></legend>
+            <div class="grupo-radio">
+              <label><input type="checkbox" name="d-entrega" value="Castrado" /> Castrado</label>
+              <label><input type="checkbox" name="d-entrega" value="Vacinado" /> Vacinado</label>
+              <label><input type="checkbox" name="d-entrega" value="Vermifugado" /> Vermifugado</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="campo-form" style="border:none; padding:0;" data-grupo-obrigatorio="d-lar-ideal">
+            <legend style="font-weight:700; margin-bottom:8px;">Lar Ideal <span class="obrigatorio">*</span></legend>
+            <div class="grupo-radio">
+              <label><input type="checkbox" name="d-lar-ideal" value="Não apresenta restrições" /> Não apresenta restrições</label>
+              <label><input type="checkbox" name="d-lar-ideal" value="Precisa de área externa ou bastante espaço" /> Precisa de área externa ou bastante espaço</label>
+              <label><input type="checkbox" name="d-lar-ideal" value="De preferência, lares sem crianças" /> De preferência, lares sem crianças</label>
+              <label><input type="checkbox" name="d-lar-ideal" value="Ideal para quem trabalha em casa ou sai pouco" /> Ideal para quem trabalha em casa ou sai pouco</label>
+            </div>
+          </fieldset>
+
+          <div class="campo-form">
+            <label for="d-restricoes">Restrições ou requisitos indispensáveis para a adoção:</label>
+            <input type="text" id="d-restricoes" />
+          </div>
+
+          <fieldset class="campo-form" style="border:none; padding:0;">
+            <legend style="font-weight:700; margin-bottom:8px;">Aceita adoção em outra Cidade ou Estado? <span class="obrigatorio">*</span></legend>
+            <div class="grupo-radio">
+              <label><input type="radio" name="d-outra-cidade" value="Sim, entrega por conta da ONG/Projeto responsável" required /> Sim, entrega por conta da ONG/Projeto responsável</label>
+              <label><input type="radio" name="d-outra-cidade" value="Sim, entrega por conta do adotante" /> Sim, entrega por conta do adotante</label>
+              <label><input type="radio" name="d-outra-cidade" value="Não" /> Não</label>
+            </div>
+          </fieldset>
+
+          <div class="campo-form">
+            <label for="d-historia">Conte brevemente a história do animal a ser divulgado. Se possível, acrescente alguma característica ou comportamento marcante <span class="obrigatorio">*</span></label>
+            <textarea id="d-historia" required></textarea>
+          </div>
+
+          <fieldset class="campo-form" style="border:none; padding:0;" data-grupo-obrigatorio="d-materiais">
+            <legend style="font-weight:700; margin-bottom:8px;">Serão enviados junto com esta ficha: <span class="obrigatorio">*</span></legend>
+            <div class="grupo-radio">
+              <label><input type="checkbox" name="d-materiais" value="Fotos recentes, sem tratamento de IA" /> Fotos recentes, sem tratamento de IA</label>
+              <label><input type="checkbox" name="d-materiais" value="Vídeos" /> Vídeos</label>
+              <label><input type="checkbox" name="d-materiais" value="Outros materiais" /> Outros materiais</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="campo-form" style="border:none; padding:0;">
+            <legend style="font-weight:700; margin-bottom:8px;">Autorizações: <span class="obrigatorio">*</span></legend>
+            <div class="grupo-radio">
+              <label><input type="checkbox" id="d-aut-publicacao" required /> Autorizo o Vô Catraquinha a publicar as informações, fotos e vídeos fornecidos nesta ficha</label>
+              <label><input type="checkbox" id="d-aut-veracidade" required /> Confirmo que as informações fornecidas são verdadeiras e estão atualizadas</label>
+              <label><input type="checkbox" id="d-aut-avaliacao" required /> Estou ciente de que o Vô Catraquinha fará apenas uma avaliação preliminar dos interessados e que a decisão final sobre a adoção permanecerá sob responsabilidade da ONG ou do protetor responsável</label>
+              <label><input type="checkbox" id="d-aut-avisar" required /> Comprometo-me a avisar quando o animal for reservado, adotado ou deixar de estar disponível</label>
+            </div>
+          </fieldset>
+
+          <div class="campo-form">
+            <label for="d-arquivos">Inclua aqui os arquivos de foto, vídeo e demais materiais para divulgação <span class="obrigatorio">*</span></label>
+            <input type="file" id="d-arquivos" accept="image/*,video/mp4,video/quicktime,video/webm" multiple required />
+            <p class="ajuda">Até 10 arquivos, máximo de 10MB cada.</p>
+          </div>
+
+          <div class="campo-form">
+            <label for="d-observacoes">Use este campo caso precise acrescentar algo a mais</label>
+            <textarea id="d-observacoes"></textarea>
+          </div>
+
+          <button type="submit" class="botao botao--primario botao--bloco" id="botao-enviar-divulgacao">Enviar ficha</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-rodape"></div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/includes.js"></script>
+  <script src="/js/fallback-whatsapp.js"></script>
+  <script src="/js/divulgacao.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.montarFallbackWhatsapp('fallback-whatsapp-divulgacao', 'de divulgação');
+    });
+  </script>
+</body>
+</html>

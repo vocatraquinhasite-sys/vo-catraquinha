@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seja voluntário(a) — Vô Catraquinha</title>
+  <meta name="description" content="Saiba como se tornar voluntário(a) do Projeto Vô Catraquinha e ajudar no acolhimento e cuidado de animais idosos." />
+  <script>
+    (function () {
+      try {
+        var salvo = localStorage.getItem('vo-catraquinha:tema');
+        if (!salvo) salvo = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+        document.documentElement.setAttribute('data-tema', salvo);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/componentes.css" />
+</head>
+<body>
+  <a href="#conteudo-principal" class="pular-para-conteudo">Pular para o conteúdo principal</a>
+  <div id="app-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="secao" style="padding-bottom:0;">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="eyebrow">Doe seu tempo e carinho</p>
+          <h1>Seja voluntário(a)</h1>
+          <p>O projeto depende de pessoas dispostas a ajudar de diferentes formas — cada tipo de ajuda faz diferença na vida dos nossos vovôs e vovós de patinha.</p>
+        </div>
+
+        <div class="grade-missao">
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">🚗</div>
+            <h3>Transporte</h3>
+            <p>Ajude a levar animais para consultas veterinárias, banho e tosa, ou para encontros de adoção.</p>
+          </div>
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">🏠</div>
+            <h3>Lar temporário</h3>
+            <p>Acolha um animal temporariamente enquanto ele aguarda por uma adoção definitiva.</p>
+          </div>
+          <div class="cartao-missao">
+            <div class="cartao-missao__icone">📸</div>
+            <h3>Divulgação</h3>
+            <p>Ajude a fotografar, filmar ou divulgar os animais nas redes sociais para aumentar as chances de adoção.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--alt">
+      <div class="container" style="max-width: 720px;">
+        <div class="cabecalho-secao">
+          <p class="eyebrow">Cadastro de interesse</p>
+          <h2>Quero ser voluntário(a)</h2>
+          <p>Preencha o formulário abaixo e entraremos em contato conforme as necessidades do projeto.</p>
+        </div>
+
+        <div id="mensagem-envio-voluntario" hidden></div>
+
+        <div id="fallback-whatsapp-voluntario"></div>
+
+        <form class="formulario" id="form-voluntario">
+          <div class="campo-form">
+            <label for="v-nome">Nome <span class="obrigatorio">*</span></label>
+            <input type="text" id="v-nome" name="nome" required />
+          </div>
+          <div class="campo-form">
+            <label for="v-contato">Telefone/WhatsApp ou e-mail <span class="obrigatorio">*</span></label>
+            <input type="text" id="v-contato" name="contato" required />
+          </div>
+          <div class="campo-form">
+            <label for="v-area">Área de interesse</label>
+            <select id="v-area" name="area_interesse">
+              <option value="">Selecione (opcional)</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Lar temporário">Lar temporário</option>
+              <option value="Divulgação">Divulgação</option>
+              <option value="Cuidados veterinários">Cuidados veterinários</option>
+              <option value="Doações e arrecadação">Doações e arrecadação</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="campo-form">
+            <label for="v-mensagem">Mensagem</label>
+            <textarea id="v-mensagem" name="mensagem" placeholder="Conte um pouco sobre como gostaria de ajudar"></textarea>
+          </div>
+          <button type="submit" class="botao botao--primario botao--bloco" id="botao-enviar-voluntario">Enviar cadastro</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-rodape"></div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/includes.js"></script>
+  <script src="/js/fallback-whatsapp.js"></script>
+  <script src="/js/voluntarios.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.montarFallbackWhatsapp('fallback-whatsapp-voluntario', 'de voluntariado');
+    });
+  </script>
+</body>
+</html>
