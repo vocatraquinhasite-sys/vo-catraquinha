@@ -21,8 +21,8 @@ window.CONFIG = {
   EMAIL_CONTATO: 'vocatraquinhasite@gmail.com',
   CHAVE_PIX: '5511984800072',
   IMAGEM_HERO: '/assets/img/fotodomenu.png',
-  IMAGEM_HISTORIA_HOME: '/assets/img/fotodosobre.png',
-  IMAGEM_HISTORIA_SOBRE: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800',
+  IMAGEM_HISTORIA_HOME: '/assets/img/fotodosobre.jpg',
+  IMAGEM_HISTORIA_SOBRE: '/assets/img/fotodosobre.jpg',
 
   mensagemWhatsappPadrao(nomeAnimal) {
     if (nomeAnimal) {
