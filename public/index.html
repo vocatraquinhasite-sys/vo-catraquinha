@@ -14,7 +14,6 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +34,7 @@
       <div class="container hero__grid">
         <div>
           <p class="eyebrow">Adoção responsável de animais idosos</p>
-          <h1 class="hero__titulo">Todo <em>vovô e vovó</em> de patinhas merece um lar cheio de carinho</h1>
+          <h1 class="hero__titulo">Todo <em>vovô e vovó</em> de patinha merece um lar cheio de carinho</h1>
           <p class="hero__texto">O Projeto Vô Catraquinha acolhe, cuida e conecta animais idosos abandonados a novas famílias — aqueles que a maioria esquece, mas que ainda têm tanto amor para dar.</p>
           <div class="hero__acoes">
             <a href="/animais.html" class="botao botao--primario">Ver animais para adoção</a>
@@ -43,7 +42,20 @@
           </div>
         </div>
         <div class="hero__figura">
-          <img id="imagem-hero" src="/assets/img/fotodomenu.png" alt="Cachorro idoso de pelagem clara descansando tranquilamente ao sol" />
+          <img id="imagem-hero" data-fallback="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=900" alt="Cachorro idoso de pelagem clara descansando tranquilamente ao sol" />
+          <script>
+            /* Define a foto ANTES da primeira pintura: usa a última foto real guardada no
+               navegador (cache) e só cai na imagem padrão se ainda não houver cache. */
+            (function () {
+              var img = document.getElementById('imagem-hero');
+              var src = img.getAttribute('data-fallback');
+              try {
+                var cache = JSON.parse(localStorage.getItem('vo-catraquinha:config-cache') || '{}');
+                if (cache.IMAGEM_HERO) src = cache.IMAGEM_HERO;
+              } catch (e) {}
+              img.src = src;
+            })();
+          </script>
           <div class="hero__figura-legenda">🐾 Cada rugazinha carrega uma história</div>
         </div>
       </div>
@@ -93,7 +105,20 @@
     <section class="secao">
       <div class="container secao-historia">
         <div class="secao-historia__figura">
-          <img id="imagem-historia-home" src="/assets/img/fotodosobre.jpg" alt="Pessoa segurando com carinho as patas de um cachorro idoso" />
+          <img id="imagem-historia-home" data-fallback="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800" alt="Pessoa segurando com carinho as patas de um cachorro idoso" />
+          <script>
+            /* Define a foto ANTES da primeira pintura: usa a última foto real guardada no
+               navegador (cache) e só cai na imagem padrão se ainda não houver cache. */
+            (function () {
+              var img = document.getElementById('imagem-historia-home');
+              var src = img.getAttribute('data-fallback');
+              try {
+                var cache = JSON.parse(localStorage.getItem('vo-catraquinha:config-cache') || '{}');
+                if (cache.IMAGEM_HISTORIA_HOME) src = cache.IMAGEM_HISTORIA_HOME;
+              } catch (e) {}
+              img.src = src;
+            })();
+          </script>
         </div>
         <div>
           <p class="eyebrow">Nossa história</p>

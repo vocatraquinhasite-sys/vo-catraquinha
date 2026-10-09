@@ -14,7 +14,6 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -41,7 +40,20 @@
     <section class="secao">
       <div class="container secao-historia">
         <div class="secao-historia__figura">
-          <img id="imagem-historia-sobre" src="/assets/img/fotodosobre.jpg" alt="Cachorro idoso sendo acariciado por uma pessoa" />
+          <img id="imagem-historia-sobre" data-fallback="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800" alt="Cachorro idoso sendo acariciado por uma pessoa" />
+          <script>
+            /* Define a foto ANTES da primeira pintura: usa a última foto real guardada no
+               navegador (cache) e só cai na imagem padrão se ainda não houver cache. */
+            (function () {
+              var img = document.getElementById('imagem-historia-sobre');
+              var src = img.getAttribute('data-fallback');
+              try {
+                var cache = JSON.parse(localStorage.getItem('vo-catraquinha:config-cache') || '{}');
+                if (cache.IMAGEM_HISTORIA_SOBRE) src = cache.IMAGEM_HISTORIA_SOBRE;
+              } catch (e) {}
+              img.src = src;
+            })();
+          </script>
         </div>
         <div>
           <p class="eyebrow">Um projeto social individual</p>
@@ -103,7 +115,10 @@
       await (window.CONFIG_CARREGADO || Promise.resolve());
       document.getElementById('link-instagram-sobre').href = window.CONFIG.INSTAGRAM_URL;
       const imgHistoria = document.getElementById('imagem-historia-sobre');
-      if (imgHistoria && window.CONFIG.IMAGEM_HISTORIA_SOBRE) imgHistoria.src = window.CONFIG.IMAGEM_HISTORIA_SOBRE;
+      // Só troca se o servidor tiver uma foto diferente da que já foi definida via cache
+      if (imgHistoria && window.CONFIG.IMAGEM_HISTORIA_SOBRE && imgHistoria.src !== window.CONFIG.IMAGEM_HISTORIA_SOBRE) {
+        imgHistoria.src = window.CONFIG.IMAGEM_HISTORIA_SOBRE;
+      }
     });
   </script>
 </body>

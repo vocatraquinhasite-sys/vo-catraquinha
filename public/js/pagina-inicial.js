@@ -44,8 +44,15 @@
     await (window.CONFIG_CARREGADO || Promise.resolve());
     const imgHero = document.getElementById('imagem-hero');
     const imgHistoria = document.getElementById('imagem-historia-home');
-    if (imgHero && window.CONFIG.IMAGEM_HERO) imgHero.src = window.CONFIG.IMAGEM_HERO;
-    if (imgHistoria && window.CONFIG.IMAGEM_HISTORIA_HOME) imgHistoria.src = window.CONFIG.IMAGEM_HISTORIA_HOME;
+    // Confirmação pós-fetch: a foto já foi definida antes da pintura (via cache local).
+    // Aqui só trocamos se o servidor tiver uma foto DIFERENTE da que estava em cache
+    // (ex: a administradora trocou a imagem pela dashboard) — evita recarga à toa.
+    if (imgHero && window.CONFIG.IMAGEM_HERO && imgHero.src !== window.CONFIG.IMAGEM_HERO) {
+      imgHero.src = window.CONFIG.IMAGEM_HERO;
+    }
+    if (imgHistoria && window.CONFIG.IMAGEM_HISTORIA_HOME && imgHistoria.src !== window.CONFIG.IMAGEM_HISTORIA_HOME) {
+      imgHistoria.src = window.CONFIG.IMAGEM_HISTORIA_HOME;
+    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
