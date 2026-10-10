@@ -16,10 +16,10 @@
  */
 window.CONFIG = {
   NOME_PROJETO: 'Vô Catraquinha',
-  WHATSAPP_NUMERO: '5585999999999',
+  WHATSAPP_NUMERO: '5511984800072',
   INSTAGRAM_URL: 'https://www.instagram.com/vocatraquinha',
-  EMAIL_CONTATO: 'contato@vocatraquinha.org',
-  CHAVE_PIX: 'contato@vocatraquinha.org',
+  EMAIL_CONTATO: 'vocatraquinhasite@gmail.com',
+  CHAVE_PIX: '5511984800072',
   IMAGEM_HERO: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=900',
   IMAGEM_HISTORIA_HOME: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800',
   IMAGEM_HISTORIA_SOBRE: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800',
